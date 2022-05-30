@@ -60,7 +60,7 @@ const Formulario = () => {
                 [e.target.name]: e.target.value
               })}
             >
-              <option>- Selecciona Categoría -</option>
+              <option disabled>- Selecciona Categoría -</option>
               { categorias.map( categoria => (
                 <option
                   key={ categoria.strCategory }
