@@ -1,8 +1,9 @@
-import { Modal, Image } from 'react-bootstrap'
+import { Modal, Image, Button } from 'react-bootstrap'
 import useBebidas from '../hooks/useBebidas'
+import { UilHeart, UilHeartBreak  } from '@iconscout/react-unicons'
 
 const ModalBebida = () => {
-  const { modal, handleModalClick, receta, cargando } = useBebidas()
+  const { modal, handleModalClick, receta, cargando, isFavourite, handleAddFavourite } = useBebidas()
 
   const mostrarIngredientes = () =>{
     let ingredientes = []
@@ -31,6 +32,18 @@ const ModalBebida = () => {
             {receta.strInstructions}
             <h2>Ingredientes y Cantidades</h2>
             {mostrarIngredientes()}
+            <div className="d-flex flex-row-reverse">
+              <Button 
+                variant="danger"
+                onClick={handleAddFavourite}
+              >
+                {isFavourite ? (
+                  <UilHeartBreak />
+                ) : (
+                  <UilHeart />
+                )}
+              </Button>{' '}
+            </div>
           </div>
         </Modal.Body>
       </Modal>
